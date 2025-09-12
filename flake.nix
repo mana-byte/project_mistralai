@@ -48,8 +48,8 @@
           torchvision-bin
 
           requests
-          fastapi
-          fastapi-cli
+          # fastapi
+          # fastapi-cli
 
           opencv4
 
@@ -86,7 +86,8 @@
             ${python.interpreter} -m venv .venv
             source .venv/bin/activate
             pip install --upgrade pip
-            pip install ultralytics pytest pluggy
+            pip install ultralytics pytest fastapi mistralai
+             pip install "fastapi[standard]"
           else
             source .venv/bin/activate
           fi

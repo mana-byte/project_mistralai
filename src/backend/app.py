@@ -1,6 +1,7 @@
 from ultralytics import YOLO
 import cv2
-from detect_food import predict_and_detect
+from backend.detect_food import predict_and_detect
+import mistralai
 
 MODEL = YOLO("yolo11n.pt").to("cuda")
 
@@ -14,5 +15,4 @@ def inference_img(img=None):
     except Exception as e:
         print("[WARNING]: something went wrong in predict_and_detect : " + str(e))
         return 1
-
     return items

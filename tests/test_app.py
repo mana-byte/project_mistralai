@@ -3,7 +3,7 @@ import cv2
 
 
 def test_inference_img_1():
-    example_img = cv2.imread("./test_img/example_food.png")
+    example_img = cv2.imread("./tests/test_img/example_food.png")
     assert len(app.inference_img(example_img)) == 5
 
 
