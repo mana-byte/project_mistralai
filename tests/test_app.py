@@ -1,4 +1,4 @@
-import app
+import backend.app as app
 import cv2
 
 

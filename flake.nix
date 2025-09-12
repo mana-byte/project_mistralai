@@ -86,7 +86,7 @@
             ${python.interpreter} -m venv .venv
             source .venv/bin/activate
             pip install --upgrade pip
-            pip install ultralytics pytest
+            pip install ultralytics pytest pluggy
           else
             source .venv/bin/activate
           fi

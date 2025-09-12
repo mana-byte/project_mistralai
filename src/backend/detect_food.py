@@ -1,7 +1,7 @@
 import cv2
 from ultralytics import YOLO
 
-MODEL = YOLO("./yolo11n.pt").to("cuda")
+MODEL = YOLO("../../models/yolo11n.pt").to("cuda")
 # MODEL = YOLO("./vrheadset/vrheadset/weights/best.pt").to("cuda")
 
 

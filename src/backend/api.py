@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-import model_test
+import app as app_module
 
 app = FastAPI()
 
