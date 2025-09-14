@@ -47,6 +47,8 @@
           torch-bin
           torchvision-bin
 
+          pydantic
+
           requests
           # fastapi
           # fastapi-cli

@@ -3,8 +3,19 @@ import cv2
 import backend.app as app_module
 from fastapi.responses import JSONResponse
 import db.db as db_module
+import numpy as np
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/foods")
@@ -64,12 +75,31 @@ async def analyze_image(file: bytes = File(...)):
     try:
         nparr = np.frombuffer(file, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-        results = app_module.inference_img(img)
+        results = app_module.inference_and_ask_mistral(img)
+        if results == 1:
+            return JSONResponse(
+                content={"error": "Image processing failed"}, status_code=400
+            )
+        for name, calories_dict in results.items():
+            calories = calories_dict.get("calories", 0)
+            if not db_module.post_food_eaten(name, calories):
+                print(f"[WARNING] Failed to log food: {name}")
     except Exception as e:
         print("[ERROR] in /foods POST: " + str(e))
         return JSONResponse(content={"error": "Internal Server Error"}, status_code=500)
-    if results == 1:
-        return JSONResponse(
-            content={"error": "Image processing failed"}, status_code=400
-        )
+    print(results)
     return JSONResponse(content=results, status_code=200)
+
+
+class ChatRequest(BaseModel):
+    question: str
+
+
+@app.post("/chat")
+async def ask_chat(question: ChatRequest):
+    try:
+        response = app_module.ask_mistral(question.question)
+    except Exception as e:
+        print("[ERROR] in /askChat POST: " + str(e))
+        return JSONResponse(content={"error": "Internal Server Error"}, status_code=500)
+    return JSONResponse(content={"response": response}, status_code=200)
