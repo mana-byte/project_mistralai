@@ -3,7 +3,7 @@
 # Ultralytics sometimes doesn't find the dataset images because it has a different path by default. To fix this just
 # go to .config/Ultralytics/settings.json and change the path by removing the datasets directory
 {
-  description = "VR Headset Filter Development Environment";
+  description = "Project mistralai Development Environment";
 
   nixConfig = {
     extra-substituters = [

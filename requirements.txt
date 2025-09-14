@@ -1,0 +1,12 @@
+numpy
+pillow
+torch
+torchvision
+pydantic
+requests
+opencv-python
+tqdm
+ultralytics
+pytest
+fastapi[standard]
+mistralai
