@@ -41,6 +41,8 @@ git clone https://github.com/mana-byte/project_mistralai.git
 cd project_mistralai
 ```
 
+> ⚠️ **Note:** THERE ARE **TWO DIFFERENT** INSTALLATION METHODS. Choose **ONE** of them.
+
 ### 2️⃣ Install with Nix/NixOS (Flake)
 
 - Install Nix: https://nixos.org/
