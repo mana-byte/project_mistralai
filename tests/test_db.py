@@ -22,5 +22,5 @@ def test_get_all_foods_eaten():
 
 
 def test_get_number_of_times_food_eaten_by_name():
-    assert db.get_number_of_times_food_eaten_by_name("NonExistentFood") == 0
-    assert db.get_number_of_times_food_eaten_by_name("Apple") >= 0
+    assert db.get_number_of_times_food_eaten_by_name("NonExistentFood")["times"] == 0
+    assert db.get_number_of_times_food_eaten_by_name("Apple")["times"] >= 0

@@ -12,13 +12,24 @@ def connect_db():
     return connection, cur
 
 
+# list of tuples to dict
+def tuples_to_dict(tuples, keys):
+    result = []
+    for t in tuples:
+        d = {}
+        for i, key in enumerate(keys):
+            d[key] = t[i]
+        result.append(d)
+    return result
+
+
 # return list of tuples (name, average_calories, times_eaten)
 def get_all_foods_eaten():
     connection, cur = connect_db()
     if connection:
         result = cur.execute(
             """SELECT 
-                    Foods.name, Foods.average_calories, COUNT(EatenFood.food_id) AS times_eaten
+                    Foods.id ,Foods.name, Foods.average_calories, COUNT(EatenFood.food_id) AS times_eaten
                     FROM
                     Foods
                     LEFT JOIN
@@ -29,7 +40,9 @@ def get_all_foods_eaten():
         )
         results = result.fetchall()  # cannot operate on close connection
         connection.close()
-        return results
+        return tuples_to_dict(
+            results, ["id", "name", "average_calories", "times_eaten"]
+        )
 
 
 # return int or None
@@ -38,7 +51,7 @@ def get_avg_calories_by_name(name):
     if connection:
         result = cur.execute(
             """SELECT 
-                    Foods.average_calories AS avg_calories
+                    Foods.id, Foods.average_calories AS avg_calories
                     FROM
                     Foods
                     WHERE
@@ -48,7 +61,7 @@ def get_avg_calories_by_name(name):
         )
         results = result.fetchone()
         connection.close()
-        return {"average_calories": results[0]} if results else None
+        return {"id": results[0], "average_calories": results[1]} if results else None
 
 
 # return list of tuples (food_name, eaten_food_id)
@@ -70,7 +83,7 @@ def get_eatan_foods_from_past_n_meals(n):
         )
         results = result.fetchall()  # cannot operate on close connection
         connection.close()
-        return results
+        return tuples_to_dict(results, ["eaten_food_id", "name"])
 
 
 # return list of tuples (eaten_food_id, food_name, calories) + ("Total", total_calories)
@@ -98,12 +111,16 @@ def get_eaten_foods_calories_from_past_n_meals(n):
         total_calories = 0
         for r in results:
             total_calories += r[2]
-        results.append(("Total", total_calories))
+        formated_results = tuples_to_dict(
+            results, ["eaten_food_id", "name", "calories"]
+        )
+        formated_results.append({"total_calories": total_calories})
+        print(formated_results)
 
-        return results
+        return formated_results
+    # return int def get_number_of_times_food_eaten_by_name(name):
 
 
-# return int
 def get_number_of_times_food_eaten_by_name(name):
     connection, cur = connect_db()
     if connection:
@@ -123,7 +140,7 @@ def get_number_of_times_food_eaten_by_name(name):
         )
         results = result.fetchone()  # cannot operate on close connection
         connection.close()
-        return {"times": results[0]} if results else 0
+        return {"times": results[0]} if results else {"times": 0}
 
 
 # return True if success, False if fail
