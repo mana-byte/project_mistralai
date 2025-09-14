@@ -68,6 +68,13 @@ pip install -r requirements.txt
 
 ## 🚀 Usage
 
+⚠️ **Note:** You will need to have a **MistralAI API key** to use the chatbot features. Set it as an environment variable:
+
+```bash
+export MISTRAL_API_KEY="your_api_key_here"
+```
+Go to https://chat.mistral.ai/chat to get an API key. You will need to create an account.
+
 - Start the FastAPI server:
 
 ```bash
