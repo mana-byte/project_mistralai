@@ -4,7 +4,9 @@ Welcome to **Chat Gourmand** – a backend application for a chatbot that gives 
 
 A lot of people snap pics of their meals before eating. This project is a proof of concept that uses those photos to analyze caloric intake and provide personalized food recommendations. 📸🥗
 
-Image analysis is powered by **Ultralytics YOLOv11** (custom-trained) and **MistralAI** models to estimate calories for each dish. The backend is built with **FastAPI** and **Ultralytics**. 🚀
+Image analysis is using **Ultralytics YOLO11** (custom-trained) and **MistralAI** models to estimate calories for each dish. The backend is built with **FastAPI** and **Ultralytics**. 🚀
+
+**NOTE:** This is a **proof of concept** and was done quickly. The Yolo11 model is not entirely accurate and can sometimemiss items or misclassify them. This is because the training was done quickly on google colab and was not optimized to get the best results since it takes a **lot of time** to train and optimize. To see all the YOLO11 model classes check: src/backend/app.py
 
 https://github.com/user-attachments/assets/391f307d-5afa-4447-99d9-161aed183c29
 
