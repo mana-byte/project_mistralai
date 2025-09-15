@@ -6,6 +6,8 @@ A lot of people snap pics of their meals before eating. This project is a proof 
 
 Image analysis is powered by **Ultralytics YOLOv11** (custom-trained) and **MistralAI** models to estimate calories for each dish. The backend is built with **FastAPI** and **Ultralytics**. 🚀
 
+https://github.com/user-attachments/assets/391f307d-5afa-4447-99d9-161aed183c29
+
 > **Frontend available:**  
 > 👉 [project_mistralai_client](https://github.com/mana-byte/project_mistralai_client)
 
