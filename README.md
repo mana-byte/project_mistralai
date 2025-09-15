@@ -6,7 +6,7 @@ A lot of people snap pics of their meals before eating. This project is a proof 
 
 Image analysis is using **Ultralytics YOLO11** (custom-trained) and **MistralAI** models to estimate calories for each dish. The backend is built with **FastAPI** and **Ultralytics**. 🚀
 
-**NOTE:** This is a **proof of concept** and was done quickly. The Yolo11 model is not entirely accurate and can sometimemiss items or misclassify them. This is because the training was done quickly on google colab and was not optimized to get the best results since it takes a **lot of time** to train and optimize. To see all the YOLO11 model classes check: src/backend/app.py
+**NOTE:** This is a **proof of concept** and was done quickly. The Yolo11 model is not entirely accurate and can sometimes miss items or misclassify them. This is because the training was done quickly on google colab and was not optimized to get the best results since it takes a **lot of time** to train and optimize. To see all the YOLO11 model classes check: src/backend/app.py
 
 https://github.com/user-attachments/assets/391f307d-5afa-4447-99d9-161aed183c29
 
@@ -97,3 +97,5 @@ pytest
 
 See the interactive docs:  
 `http://localhost:8000/docs`
+
+<img width="3748" height="2210" alt="Image" src="https://github.com/user-attachments/assets/2a9fb2eb-9454-4ed6-8c4d-5a963fe5645d" />
