@@ -1,4 +1,6 @@
-# 🐾 Projet MistralAI: Chat Gourmand
+# 🐾 Projet MistralAI: Chat Gourmand - CUDA
+
+⚠️ **IMPORTANT:** There is a branch in this repo called **cudaless** that has the code modified to run without CUDA. This is useful if you don't have a compatible GPU. It won't be much slower for inference since the model is small.
 
 Welcome to **Chat Gourmand** – a backend application for a chatbot that gives fun, cat-like food advice based on your meal photos! 🍽️😺
 
@@ -14,10 +16,6 @@ https://github.com/user-attachments/assets/391f307d-5afa-4447-99d9-161aed183c29
 > 👉 [project_mistralai_client](https://github.com/mana-byte/project_mistralai_client)
 
 ---
-
-
-⚠️ **IMPORTANT:** There is a branch in this repo called **cudaless** that has the code modified to run without CUDA. This is useful if you don't have a compatible GPU. It won't be much slower for inference since the model is small.
-
 
 ## ✨ Features
 
