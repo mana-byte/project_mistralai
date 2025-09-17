@@ -1,15 +1,15 @@
 import cv2
 from ultralytics import YOLO
 
-MODEL = YOLO("../../models/yolo11n.pt").to("cuda")
+# MODEL = YOLO("../../models/yolo11n.pt").to("cuda")
 # MODEL = YOLO("./vrheadset/vrheadset/weights/best.pt").to("cuda")
 
 
 def predict(chosen_model, img, classes=[], conf=0.5):
     if classes != []:
-        results = chosen_model.predict(img, classes=classes, conf=conf, device=0)
+        results = chosen_model.predict(img, classes=classes, conf=conf, device="cpu")
     else:
-        results = chosen_model.predict(img, conf=conf, device=0)
+        results = chosen_model.predict(img, conf=conf, device="cpu")
 
     return results
 
