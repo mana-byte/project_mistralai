@@ -1,4 +1,6 @@
-# 🐾 Projet MistralAI: Chat Gourmand
+# 🐾 Projet MistralAI: Chat Gourmand - CUDALESS
+
+**NOTE:** this project is the same as main branch but modified to run without a GPU (CUDA) for better compatibility and easier setup and installation.
 
 Welcome to **Chat Gourmand** – a backend application for a chatbot that gives fun, cat-like food advice based on your meal photos! 🍽️😺
 
@@ -32,7 +34,6 @@ https://github.com/user-attachments/assets/391f307d-5afa-4447-99d9-161aed183c29
 - 🦾 Ultralytics
 - 🧠 MistralAI models
 - 📦 Other dependencies in `requirements.txt`
-- 💻 CUDA (for GPU acceleration)
 
 ---
 
@@ -66,7 +67,7 @@ sudo nix develop
 pip install -r requirements.txt
 ```
 
-- Make sure you have **CUDA** and **SQLite** for GPU and database support.
+- Make sure you have **SQLite** for database support.
 
 ---
 

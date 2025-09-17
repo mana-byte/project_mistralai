@@ -66,8 +66,8 @@
           pythonWithPackages
 
           # For CUDA support if you already have it remove these two lines
-          cudaPackages.cudatoolkit
-          cudaPackages.cudnn
+          # cudaPackages.cudatoolkit
+          # cudaPackages.cudnn
 
           pkg-config
           # ffmpeg
@@ -79,9 +79,9 @@
         ];
 
         shellHook = ''
-          export CUDA_PATH=${pkgs.cudatoolkit}
-          export LD_LIBRARY_PATH=${pkgs.cudatoolkit}/lib:$LD_LIBRARY_PATH
-          export EXTRA_CCFLAGS="-I/usr/include"
+          # export CUDA_PATH=${pkgs.cudatoolkit}
+          # export LD_LIBRARY_PATH=${pkgs.cudatoolkit}/lib:$LD_LIBRARY_PATH
+          # export EXTRA_CCFLAGS="-I/usr/include"
 
           if [ ! -d .venv ]; then
             echo "Creating virtualenv with ultralytics ..."
