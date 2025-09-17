@@ -42,7 +42,7 @@ https://github.com/user-attachments/assets/391f307d-5afa-4447-99d9-161aed183c29
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/mana-byte/project_mistralai.git
+git clone --single-branch --branch cudaless https://github.com/mana-byte/project_mistralai.git # to fetch cudaless branch only
 cd project_mistralai
 ```
 
