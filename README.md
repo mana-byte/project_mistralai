@@ -67,8 +67,6 @@ sudo nix develop
 pip install -r requirements.txt
 ```
 
-- Make sure you have **SQLite** for database support.
-
 ---
 
 ## 🚀 Usage
