@@ -15,8 +15,13 @@ https://github.com/user-attachments/assets/391f307d-5afa-4447-99d9-161aed183c29
 
 ---
 
+
+⚠️ **IMPORTANT:** There is a branch in this repo called **cudaless** that has the code modified to run without CUDA. This is useful if you don't have a compatible GPU. It won't be much slower for inference since the model is small.
+
+
 ## ✨ Features
 
+- 📦 SQlite database for simple data storage
 - 📷 Upload meal photos
 - 🤖 Analyze meals with YOLOv11
 - 🔥 Get caloric intake info
@@ -66,7 +71,7 @@ sudo nix develop
 pip install -r requirements.txt
 ```
 
-- Make sure you have **CUDA** and **SQLite** for GPU and database support.
+- Make sure you have **CUDA** for GPU acceleration (If you don't go to cudaless branch).
 
 ---
 
